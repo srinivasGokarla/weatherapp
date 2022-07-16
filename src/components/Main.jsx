@@ -31,14 +31,14 @@ export const Main = (p) => {
   const showCity = (e) => { 
     e.preventDefault()
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=595afb2f45d803d7fb987f05a9dfa004`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6d514e6c31ef6012472bbc8bfa14c2d3`)
       .then(res => res.json())
       .then(data => getWeather(data.coord.lon, data.coord.lat))
       .catch(err => console.log(err))
   };
 
   const getWeather = (lon, lat) => {
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=595afb2f45d803d7fb987f05a9dfa004&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=6d514e6c31ef6012472bbc8bfa14c2d3&units=metric`)
     .then(res => res.json())
     .then(data => show(data))
     .catch(err => console.log(err))
@@ -102,7 +102,7 @@ export const Main = (p) => {
                   <span className="span mintemp">{el.temp.min.toFixed()}&deg;</span>
                 </div>
                 <div className="Weather_image">
-                  <img className="image" src={(el.weather[0].main == "Clear") ? sunny : (el.weather[0].main == "Rain") ? rainy : cloudy} alt="" />
+                  <img className="image" src={(el.weather[0].main === "Clear") ? sunny : (el.weather[0].main === "Rain") ? rainy : cloudy  } alt="" />
                   <p className='Weather_status'>{el.weather[0].main}</p>
                 </div>
               </div>
@@ -129,11 +129,11 @@ export const Main = (p) => {
         <div className='TempDetails1'>
           <div>
             <p>Sunrise</p>
-            <p className='setsetTime'>{new Date(curr.sunrise*1000).toLocaleString().slice(12, 17)}am</p>
+            <p className='setsetTime'>{new Date(curr.sunrise*1000).toLocaleString().slice(0, 5)}am</p>
           </div>
           <div>
             <p>Sunset</p>
-            <p className='setsetTime'>{new Date(curr.sunset*1000).toLocaleString().slice(12, 17)}pm</p>
+            <p className='setsetTime'>{new Date(curr.sunset*1000).toLocaleString().slice(3, 5)}pm</p>
           </div>
         </div>
         <LowerGraph />
