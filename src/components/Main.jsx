@@ -87,7 +87,7 @@ export const Main = (p) => {
             if(search === ""){
               return a
             }else{
-              return a.city.toLowerCase().includes(search.toLowerCase())    
+              return a.city.includes(search)    
             }
             
           })
@@ -129,11 +129,11 @@ export const Main = (p) => {
         <div className='TempDetails1'>
           <div>
             <p>Sunrise</p>
-            <p className='setsetTime'>{new Date(curr.sunrise*1000).toLocaleString().slice(0, 5)}am</p>
+            <p className='setsetTime'>{new Date(curr.sunrise*1000).toLocaleString().slice(0, 18)}am</p>
           </div>
           <div>
             <p>Sunset</p>
-            <p className='setsetTime'>{new Date(curr.sunset*1000).toLocaleString().slice(3, 5)}pm</p>
+            <p className='setsetTime'>{new Date(curr.sunset*1000).toLocaleString().slice(2, 17)}pm</p>
           </div>
         </div>
         <LowerGraph />

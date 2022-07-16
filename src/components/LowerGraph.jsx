@@ -5,7 +5,7 @@ import "../App.css";
 function LowerGraph() {
     var obj = {
         series: [{
-            data: [0, 40, 0]
+            data: [0, 38, 0]
           }],
           options: {
                 colors:["#FEE266"],
