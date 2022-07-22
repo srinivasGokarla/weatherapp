@@ -60,6 +60,7 @@ export const Main = (p) => {
 
   const getCity = (e) => {
     setCity(e.target.value);
+    console.log(e.target.value)
   }
 
   return (
@@ -77,8 +78,8 @@ export const Main = (p) => {
         {
           list?.filter((el) => {
       
-            if(el.city === val){
-              return el.city === val
+            if(el.dt === val){
+              return el.dt === val
             }else if(val === ""){
                 return el
             }
@@ -87,12 +88,12 @@ export const Main = (p) => {
             if(search === ""){
               return a
             }else{
-              return a.city.includes(search)    
+              return a.dt.includes(search)    
             }
             
           })
           .map((el, i) => {
-            console.log(el.dt)
+            //console.log(el.dt)
             const dateTimeStr = new Date(el.dt*1000).toLocaleString("en-US",{weekday:"long"}).slice(0,3);
             return (
               <div key={i} className="_iforecast">
@@ -111,7 +112,7 @@ export const Main = (p) => {
       </div>
       <div className='GraphDiv'>
         <div className="TempInfo">
-          <h1>{currTemp}&deg;C<span>
+          <h1>{currTemp}&deg;C {}<span>
           <img className="img-cloudy" src={cloudy} alt="" />
           </span></h1>
         </div>
