@@ -1,48 +1,80 @@
 import React from "react";
-import Chart from "react-apexcharts";
 import "../App.css";
-function TopGraph() {
-    var obj = {
-      options: {
-        chart: {
-          zoom:{
-            enabled:false
-          }
-        },
-        stroke: {
-          curve: 'smooth',
-        },
-        xaxis: {
-          categories: ["","9am","10am","11am","12am","1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm"]
-        },
-        dataLabels: {
-          enabled: false
-        }
-      },
-      series: [
-        {
-          name: "series-1",
-          data: [20,24,26,30,33,31,33,30,32,29,27,26,24,24]
-        }
-      ],
+import sunny from '../Images/sunny.png';
+import rainy from '../Images/rainy.png';
+import cloudy from '../Images/cloudy.png';
+import {
+  ResponsiveContainer,
+  Tooltip,
+  Legend,
+  XAxis,
+  AreaChart,
+  Area,
+  CartesianGrid,
+} from "recharts";
+const TopGraph = ({
+  weather,
+  weather: {  main, name, temp, timezone },
+}) => {
 
-    };
-    return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
-            <Chart
-              options={obj.options}
-              series={obj.series}
-              type="area"
-              width="100%"
-              align="center"
-            />
+  return (
+      <div className="MainHr">
+          <div className="HrTemp">
+              <h1 >{Math.floor(temp)} °C</h1>
+              <img className="HrChartImg"
+                      src={
+                        main  === "Clear"
+                        ? sunny
+                        :main  === "Clouds" 
+                        ? cloudy
+                        :rainy
+                      }
+                      alt={main}
+                    />
+                    <div className="HrTimezone">
+                      <p>{name} {timezone}</p>
+                    </div>
           </div>
-        </div>
+
+
+          {/* Chart */}
+
+          
+          
+          
+          <div className="ChartMain">
+              <ResponsiveContainer width="100%">
+                  <AreaChart
+                      data={weather.hourly}
+   
+                  >   
+                  <defs>
+                      <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#0852c1" stopOpacity={.8}/>
+                        <stop offset="95%" stopColor="#2240d7" stopOpacity={.2}/>
+                      </linearGradient>
+
+                  </defs>
+                        <CartesianGrid strokeDasharray="2" />
+                      <XAxis dataKey="title" interval={'preserveStartEnd'} />
+                      
+                      <Tooltip />
+                      <Legend />
+                      <Area 
+                       type="monotone" 
+                       dataKey="temp" 
+                       activeDot={{r:7}}
+                      stroke="#3831b2" fillOpacity={1} fill="url(#colorUv)"
+
+                       />
+                  </AreaChart>
+              </ResponsiveContainer>
+          </div>
+      
+
       </div>
-    );
-  }
+  )
+}
 
 
 export default TopGraph;
