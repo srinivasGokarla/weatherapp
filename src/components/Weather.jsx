@@ -1,15 +1,12 @@
 import { DateTime } from "luxon";
 
-const API_KEY = "6d514e6c31ef6012472bbc8bfa14c2d3";
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
-
-const getWeatherData = (infoType, searchParams) => {
-    const url = new URL(BASE_URL + "/" + infoType);
-    url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+const getWeather = (infoType, searchParams) => {
+    const url = new URL("https://api.openweathermap.org/data/2.5" + "/" + infoType);
+    url.search = new URLSearchParams({ ...searchParams, appid: "6d514e6c31ef6012472bbc8bfa14c2d3" });
     return fetch(url).then((res) => res.json());
 };
 
-const formatCurrentWeather = (data) => {
+const CurrentWeather = (data) => {
     const {
         coord: { lat, lon },
         main: { temp, temp_min, temp_max, humidity, pressure },
@@ -38,7 +35,7 @@ const formatCurrentWeather = (data) => {
     };
 };
 
-const formatForecastWeather = (data) => {
+const ForecastWeather = (data) => {
     let { timezone, daily, hourly } = data;
 
     daily = daily.slice(0, 7).map((d) => {
@@ -65,23 +62,22 @@ const formatForecastWeather = (data) => {
 };
 
 const getFormattedWeatherData = async (searchParams) => {
-    const formattedCurrentWeather = await getWeatherData(
+    const formattedCurrentWeather = await getWeather(
         "weather",
         searchParams
-    ).then(formatCurrentWeather);
+    ).then(CurrentWeather);
 
     const { lat, lon } = formattedCurrentWeather;
 
-    const formattedForecastWeather = await getWeatherData("onecall", {
+    const formattedForecastWeather = await getWeather("onecall", {
         lat,
         lon,
         exclude: "current,minutely,alerts",
         units: searchParams.units,
-    }).then(formatForecastWeather);
+    }).then(ForecastWeather);
     return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
-// formating Local Time
 const formatToLocalTime = (secs,zone,format = "cccc, dd LLL yyyy' | Local time:'hh:mm a") => 
 DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 

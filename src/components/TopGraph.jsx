@@ -18,10 +18,10 @@ const TopGraph = ({
 }) => {
 
   return (
-      <div className="MainHr">
-          <div className="HrTemp">
+      <div className="TopGraph">
+          <div className="top">
               <h1 >{Math.floor(temp)} °C</h1>
-              <img className="HrChartImg"
+              <img className="topImg"
                       src={
                         main  === "Clear"
                         ? sunny
@@ -31,18 +31,12 @@ const TopGraph = ({
                       }
                       alt={main}
                     />
-                    <div className="HrTimezone">
+                    <div className="timezone">
                       <p>{name} {timezone}</p>
                     </div>
           </div>
 
-
-          {/* Chart */}
-
-          
-          
-          
-          <div className="ChartMain">
+          <div className="chart">
               <ResponsiveContainer width="100%">
                   <AreaChart
                       data={weather.hourly}
@@ -50,7 +44,7 @@ const TopGraph = ({
                   >   
                   <defs>
                       <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#0852c1" stopOpacity={.8}/>
+                        <stop offset="5%" stopColor="#0852c1" stopOpacity={.6}/>
                         <stop offset="95%" stopColor="#2240d7" stopOpacity={.2}/>
                       </linearGradient>
 
@@ -64,7 +58,7 @@ const TopGraph = ({
                        type="monotone" 
                        dataKey="temp" 
                        activeDot={{r:7}}
-                      stroke="#3831b2" fillOpacity={1} fill="url(#colorUv)"
+                      stroke="#0cbeeb" fillOpacity={1} fill="url(#colorUv)"
 
                        />
                   </AreaChart>

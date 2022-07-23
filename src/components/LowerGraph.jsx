@@ -39,24 +39,24 @@ function LowerGraph({
       
       <div className="LowerGraph1">
         <div>
-        <div className='TempDetails'>
+        <div className='lower'>
           <div>
-            <p>Pressure</p>
-            <span>{pressure} hpa</span>
+            <p>Pressure:  <span>{pressure} hpa</span></p>
+           
           </div>
           <div>
-            <p>Humidity</p>
-            <span>{humidity}%</span>
+            <p>Humidity:  <span >{humidity}%</span> </p>
+           
           </div>
         </div>
-        <div className='TempDetails1'>
+        <div className='lower1'>
           <div>
-            <p>Sunrise</p>
-            <span className='setsetTime'>{formatToLocalTime(sunrise, timezone, "h:mm")}am</span>
+            <p>Sunrise :  <span className='set'>{formatToLocalTime(sunrise, timezone, "h:mm")}am</span></p>
+           
           </div>
           <div>
-            <p>Sunset</p>
-            <span className='setsetTime'>{formatToLocalTime(sunset, timezone, "h:mm")}pm</span>
+            <p>Sunset : <span className='set'>{formatToLocalTime(sunset, timezone, "h:mm")}pm</span></p>
+            
           </div>
         </div>
         <div className="LowerGraph2">

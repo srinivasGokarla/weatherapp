@@ -11,26 +11,24 @@ export default function Weeklist({ weather: { daily } }) {
         let temp = daily.filter((p) => p.title === title);
         setList(temp);
     };
-    console.log(list);
+   // console.log(list);
   return (
     <div>
- <div className="main_weeklist">
+ <div className="weeklist">
             {daily.map((days, i) => {
                 return (
                   <div 
-                //   style={{marginTop:"-10px"}}
                     onClick={() => handleList(days.title)}
                     key={i + 1}
-                    // class="WeekListCard"
                     className={list[0].title === days.title ? "list" : ""}
                   >
                     <p style={{marginTop:"-0px"}}>{days.title}</p>
-                    <p className="listMinMax">
-                      <spaen>{Math.floor(days.max)} °</spaen>
+                    <p >
+                      <span>{Math.floor(days.max)} °</span>
                       <span>{Math.floor(days.min)} °</span>
                     </p>
                     <div>
-                      <img className="ListImg"
+                      <img className="img"
                         src={
                           days.type === "Clear"
                           ? sunny
@@ -45,8 +43,6 @@ export default function Weeklist({ weather: { daily } }) {
                   </div>
                 );
             })}
-
-
             </div>
     </div>
   )

@@ -117,46 +117,50 @@ width:100%;
   width: 8%;
   margin-left: 15px;
 }
-.LowerGraph1{
+.lower1{
 padding-left: 5%;
 margin-top: 20px;
 }
-.TempDetails{
+.lower{
   width: 65%;
   margin: auto;
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
 }
-.TempDetails > div{
-  /* border: 1px solid blue; */
+.lower > div{
   background-color: #F3FBFF;
-  color: #2C3E50;
+  color: #5081b1;
   width: 40%;
   font-weight: 600;
   font-family: sans-serif;
   padding: 0px 15px;
+  padding-bottom: 15px;
+  
 }
-.TempDetails1{
+.lower1{
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
   margin-top: 20px;
+  
 }
-.TempDetails1 > div{
-  color: #2C3E50;
+.lower1 > div{
+  color: #1f5c98;
   font-weight: 600;
   font-family: sans-serif;
+ 
+
 }
-.setsetTime{
+.set{
   font-weight: 400;
   margin-top: -12px;
 }
 .add{
  text-align: center;
 }
-.InputSearch{
+.input{
   box-shadow: 0 8px 10px -3px rgb(0 0 0 / 10%), 
   0 4px 6px -2px rgb(0 0 0 / 10%),
    0 -8px 12px 0 rgb(0 0 0 / 5%), 
@@ -171,13 +175,13 @@ margin-top: 20px;
   transition: box-shadow .2s ease;
   width: 90%;
 }
-.SearchMain{
+.search{
   display: flex;
   align-items: center;
   position: relative;
   margin-bottom: 1.5rem;
 }
-.SearchButton{
+.button{
   background: 0 0;
   border: none;
   position: absolute;
@@ -186,19 +190,18 @@ margin-top: 20px;
   
 }
 
-.SearchMain > div{
+.search > div{
   position: absolute;
-  /* font-size: 1.8rem; */
   left: 1rem;
 }
-.LocIcon{
+.icon{
   height: 1.25rem;
   width: 1.25rem;
   
 }
 
-.de_main{
-  height : 50px;
+.debounce{
+  height : 40px;
   margin :auto;
   border-radius : 1px ;
   display : flex;
@@ -209,7 +212,6 @@ margin-top: 20px;
   background-color : white;
   cursor: pointer;
   
-  
 }
 
 .de_icon{
@@ -218,45 +220,37 @@ margin-top: 20px;
   justify-content: space-around;
 }
 
-
-
-
-.HrTemp{
+.top{
   display: flex;
   align-items: baseline;
   margin-bottom: 1.5rem;
-  
 }
 
-.HrTemp >h1 {
-  font-size: 3rem;
-  font-weight: 700;
+.top >h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
   margin: 0;
   color: #000;
 }
-.HrChartImg{
+.topImg{
   height: 52px;
   margin-left: 16px;
 
 
 }
 
-.HrTimezone > p {
+.timezone > p {
   margin-left: 20px;
-  /* margin-top:-20px; */
-  color: #2c3e50;
-  /* font-size:16px */
-  /* padding-bottom: 10px; */
+  color: #0a7df1;
+
 }
 
-
-.ChartMain{
+.chart{
 margin: 5px 5px 25px 8px;
 height: 350px;
-/* margin-left: 20px; */
-
 }
-.main_weeklist{
+
+.weeklist{
   display: flex;
   width: 100%;
   margin: 20px auto;
@@ -264,7 +258,7 @@ height: 350px;
   text-align: center;
   
 }
-.main_weeklist > div{
+.weeklist > div{
   min-width: 65px;
   margin-right: 10px;
   padding: 10px;
@@ -272,25 +266,20 @@ height: 350px;
   background-color: rgb(255, 253, 247);
   margin-bottom: 5px;
 }
-.ListImg{
-  width: 30%;
+
+.img{
+  width: 40%;
   margin-top:12px;
-  margin-bottom: -8px;
-  
-  
 }
-p{
-  font-weight: 600;
+
+p {
+  font-weight: 500;
   text-align: center;
   color: #2c3e50;
   margin-bottom: -5px;
 }
 
-.main_weeklist>.list {
+.weeklist>.list {
   border: 3px solid rgb(0, 166, 250);
 }
 
-/* 
-.listMinMax{
-  display: flex;
-} */
