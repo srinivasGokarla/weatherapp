@@ -4,11 +4,13 @@ import Pin from '../Images/pin.png';
 import SearchIcon from '../Images/Searchicon.png'
 import {cities} from "./cities"
 
-export default function Search({setQuery}) {
+export default function Search({setQuery,
+ }) {
 
     const [city, setCity] = useState("");
 
     const [data, setData] = useState([])
+   // const check = weather.name
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(

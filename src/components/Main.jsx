@@ -4,7 +4,8 @@ import TopGraph from './TopGraph';
 import LowerGraph from './LowerGraph';
 import Search from "./Search";
 import getFormattedWeatherData from "./Weather";
-import WeekList from "./Weeklist"
+import WeekList from "./Weeklist";
+import Map from "./Map"
 
 
 export const Main = () => {
@@ -35,7 +36,9 @@ export const Main = () => {
                         <div>
                            
                            <WeekList weather={weather} />
+
                             <TopGraph  weather={weather} />
+                            <Map weather={weather} />
                             <LowerGraph weather={weather} />
                            
                            
