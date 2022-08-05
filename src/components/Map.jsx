@@ -4,7 +4,8 @@ export default function Map({
     weather,
     weather: {  main, name, temp, timezone },
   }) {
-    let cityName = weather.name
+    let cityName = weather.name;
+   
   return (
     <div>
   <div style={{padding:'5px'}}>

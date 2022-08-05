@@ -1,16 +1,15 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useRef } from 'react';
 import '../App.css';
 import Pin from '../Images/pin.png';
 import SearchIcon from '../Images/Searchicon.png'
 import {cities} from "./cities"
 
-export default function Search({setQuery,
- }) {
+export default function Search({setQuery}) {
 
     const [city, setCity] = useState("");
+    const myRef = useRef();
 
     const [data, setData] = useState([])
-   // const check = weather.name
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -69,7 +68,9 @@ export default function Search({setQuery,
             count = 1
         }
 
-
+        const handleFocus = () => {
+            myRef.current.style.display = "block";
+          };
     return (
       <div>
           <div>
@@ -80,9 +81,10 @@ export default function Search({setQuery,
                     type="text"
                     name="search"
                     value={city}
+                    onFocus={handleFocus}
                     onInput={handleInput} 
                     onChange={(e)=>setCity(e.target.value)}
-                    onKeyDown={handlekey}
+                    onKeyPress={handlekey}
                     placeholder="Enter City Name" 
                     />
                     
@@ -92,18 +94,23 @@ export default function Search({setQuery,
 
                     </div>
 
-                    {
+                    
+
+                    {/* {
                     count === 0 &&
                 <div style={{ height : "200px", width : "91%", overflow : "auto", margin : "auto"}}>
+                    
                     {data.map((e) => (   
                         <div className="debounce" onClick={()=>(setCity(e),  handledisplay(), handleSearch())}>
                                 <p>{e}</p>  
                         </div>    
-                    ))}
+                    ))
+                   }
                 </div>
-            }
+            } */}
           </div>
           
       </div>
     )
 }
+/**? */
