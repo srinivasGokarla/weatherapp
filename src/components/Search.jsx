@@ -96,8 +96,8 @@ export default function Search({setQuery}) {
 
                     
 
-                    {/* {
-                    count === 0 &&
+                    {
+                    count < 0 &&
                 <div style={{ height : "200px", width : "91%", overflow : "auto", margin : "auto"}}>
                     
                     {data.map((e) => (   
@@ -107,7 +107,7 @@ export default function Search({setQuery}) {
                     ))
                    }
                 </div>
-            } */}
+            }
           </div>
           
       </div>
